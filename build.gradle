@@ -1,0 +1,47 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.17.BUILD-SNAPSHOT'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.tep.pucmm'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-freemarker')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '1.5.9.RELEASE'
+	compileOnly('org.projectlombok:lombok')
+	runtime('com.h2database:h2')
+	compile group: 'org.springframework.security', name: 'spring-security-config', version: '4.2.3.RELEASE'
+	compile group: 'org.springframework.security', name: 'spring-security-web', version: '4.2.3.RELEASE'
+	compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '3.0.2.RELEASE'
+	compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
+	compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+}
